@@ -1,0 +1,10 @@
+defaults:
+  - task: random_grasp_task
+  - _self_
+
+ckpt_dir: ???
+model_name: ???
+hydra:
+  run:
+    dir: ${ckpt_dir}
+test_num: 20

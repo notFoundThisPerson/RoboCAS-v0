@@ -1,0 +1,11 @@
+defaults:
+  - task: data_collection_task
+  - env: multi_obj_env
+  - _self_
+
+output_data_path: ${hydra:run.dir}/collected_data
+num_episodes: 1000
+
+task:
+  _target_: robot_sim.tasks.select_task_generation.GraspAndConveyTask
+  random_init_prob: 0

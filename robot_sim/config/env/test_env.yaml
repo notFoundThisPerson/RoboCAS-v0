@@ -1,0 +1,48 @@
+defaults:
+  - common
+  - articulation_configs@articulation_configs.shelf: shelf
+  - articulation_configs@articulation_configs.shelf2: shelf
+#  - articulation_configs@articulation_configs.slide_door_container: slide_door_container
+  - articulation_configs@articulation_configs.table: table2
+#  - articulation_configs@articulation_configs.refrigerator: refrigerator
+#  - articulation_configs@articulation_configs.cabinet: cabinet1
+#  - articulation_configs@articulation_configs.cabinet2: cabinet_container
+#  - articulation_configs@articulation_configs.basket: basket
+  - _self_
+
+articulation_configs:
+  shelf:
+    config:
+      initial_pose:
+        p: [ 0, 2.2, 0 ]
+        q: [ 0.707, 0, 0, -0.707 ]
+  shelf2:
+    config:
+      initial_pose:
+        p: [ 0, 0, 0 ]
+        q: [ -0.707, 0, 0, 0.707 ]
+  table:
+    config:
+      initial_pose:
+        p: [2.2, 1.3, 0]
+        q: [0, 0, 0, 1]
+#  cabinet:
+#    config:
+#      initial_pose:
+#        p: [ 0.5, 2.7, 1.5 ]
+#        q: [ 0.707, 0, 0, -0.707 ]
+#  cabinet2:
+#    config:
+#      initial_pose:
+#        p: [ 1.8, 1.5, 0 ]
+#        q: [ 0, 0, 0, 1 ]
+
+robot_config:
+  base_pose:
+    p: [0, 1.3, 0]
+    q: [0, 0, 0]
+num_objects: 50
+obj_place_mode: tight
+tight_factor: 1.0
+random_background: true
+obj_repeat_num: 2

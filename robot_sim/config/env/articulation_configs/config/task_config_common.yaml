@@ -1,0 +1,8 @@
+defaults:
+  - .@handle_pose: sapien_pose
+  - _self_
+_target: robot_sim.envs.objects.articulation_object.OperationConfig
+name: ???
+type: ???
+link_name: ???
+joint_name: ???

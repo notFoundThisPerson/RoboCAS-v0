@@ -1,0 +1,15 @@
+defaults:
+  - .@initial_pose: sapien_pose
+  - _self_
+_target_: robot_sim.envs.objects.env_object.BaseObjectConfig
+urdf_path: null
+visual_path: null
+collision_path: null
+name: null
+model_origin_offset: null
+scale: 1.0
+density: 1000.0
+use_fixed_base: false
+use_nonconvex_collision: false
+physical_material: null
+render_material: null

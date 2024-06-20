@@ -1,0 +1,31 @@
+defaults:
+  - task: data_collection_task
+  - env: multi_obj_env
+  - _self_
+
+output_data_path: ${hydra:run.dir}/collected_data
+num_episodes: 1000
+
+task:
+  _target_: robot_sim.tasks.select_task_generation.GraspFromCabinetTask
+  random_init_prob: 0
+
+env:
+  robot_config:
+    base_pose:
+      p: [ 1, -0.4, 0 ]
+      q: [ 0, 0, 0 ]
+
+  articulation_configs:
+    shelf:
+      available_layers: []
+    slide_door_container:
+      available_layers: ['layer2']
+    table:
+      available_layers: []
+    basket:
+      config:
+        initial_pose:
+          p: [ 1.1, 0, 0 ]
+
+  num_objects: 5

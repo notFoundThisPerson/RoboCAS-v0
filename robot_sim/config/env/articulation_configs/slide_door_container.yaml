@@ -1,0 +1,28 @@
+defaults:
+  - common
+  - config: articulation_common
+  - config@config.model_origin_offset: sapien_pose
+  - config@config.operation_tasks.slide1: task_config_common
+  - _self_
+
+config:
+  urdf_path: '{MT_ASSET_DIR}/PartNet-Mobility/dataset/45855/mobility.urdf'
+  name: slide_door_container
+  model_origin_offset:
+    p: [0, 0, 0.55678]
+    q: [0, 0, 0, 1]
+
+  operation_tasks:
+    slide1:
+      type: slide_operation
+      name: 'slide door'
+      link_name: link_0
+      joint_name: joint_0
+      handle_pose:
+        p: [0.672, 0, 0.378]
+        q: [0, 0, 1, 0]
+
+  surfaces:
+    _target_: collections.OrderedDict
+    layer1: [ [ 0, 0.2, 0.055 ], [ 0.21, 0.6, 0.055 ] ]
+    layer2: [ [ 0, 0.2, 0.6 ], [ 0.21, 0.6, 0.6 ] ]

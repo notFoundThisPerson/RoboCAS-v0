@@ -1,0 +1,12 @@
+defaults:
+  - common
+  - config: articulation_common
+  - config@config.model_origin_offset: sapien_pose
+  - _self_
+
+config:
+  urdf_path: '{MT_ASSET_DIR}/PartNet-Mobility/dataset/21473/mobility.urdf'
+  name: table
+  model_origin_offset:
+    p: [0, 0, 0.525136]
+    q: [0, 0, 0, 1]

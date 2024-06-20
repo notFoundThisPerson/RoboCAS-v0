@@ -1,0 +1,44 @@
+{
+    "mode": "train",
+    "device": "cuda",
+    "data_path": "/home/caohaiheng/Projects/datasets/collected_data_sapien/sapien_table_grasp_data",
+    "cam_view" : ["base_rgb", "gripper_rgb"],
+    "log_dir": "/home/caohaiheng/Projects/robot_simulation/3rd_party/rt1-ioai/logs/tmp",
+    "dataset_kwargs": {
+        "use_global_goal": false,
+        "step_types": ["move and grasp"]
+    },
+    "num_workers": 2,
+    "time_sequence_length": 6,
+    "lr": 0.0001,
+    "batch_size": 2,
+    "epochs": 1,
+    "resume": false,
+    "resume_from_checkpoint": "/mnt/dolphinfs/hdd_pool/docker/user/hadoop-camera3d/zhengliming/pytorch_rt1_mt_sim_data_logs/real_scene_grasp_task_new_merge2/2023.12.18-13.37.11/24-checkpoint.pth",
+    "world_size": 1,
+    "dist_url": "env://",
+    "val_interval" : 1,
+    "num_eval_threads": 1,
+    "num_train_episode" : 1,
+    "num_val_episode" : 1,
+    "using_proprioception" : false,
+    "network_configs": {
+        "vocab_size" : 256,
+        "token_embedding_size_per_image" : 512,
+        "language_embedding_size" : 384,
+        "num_layers" : 8,
+        "layer_size" : 128,
+        "num_heads" : 8,
+        "feed_forward_size" : 512,
+        "dropout_rate" : 0.1,
+        "crop_size" : 236,
+        "use_token_learner" : true
+    },
+    "scheduler_configs" : {
+        "T_0" : 8000,
+        "T_mult" : 2,
+        "eta_min" : 1e-5,
+        "verbose" : true
+    }
+
+}

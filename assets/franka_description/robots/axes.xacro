@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="axes">
+  <xacro:macro name="axis" params="prefix ax parent radius:='0.005' length:='0.2' ">
+    <link name="${prefix}_${ax}_axis_link">
+      <visual>
+        <xacro:if value="${ax == 'x'}">
+          <origin xyz="${length / 2} 0 0" rpy="0 ${pi / 2} 0" />
+          <material name="red">
+            <color rgba="1 0 0 1"/>
+          </material>
+        </xacro:if>
+        <xacro:if value="${ax == 'y'}">
+          <origin xyz="0 ${length / 2} 0" rpy="${pi / 2} 0 0" />
+          <material name="green">
+            <color rgba="0 1 0 1"/>
+          </material>
+        </xacro:if>
+        <xacro:if value="${ax == 'z'}">
+          <origin xyz="0 0 ${length / 2}" rpy="0 0 0" />
+          <material name="blue">
+            <color rgba="0 0 1 1"/>
+          </material>
+        </xacro:if>
+        <geometry>
+          <cylinder length="${length}" radius="${radius}"/>
+        </geometry>
+      </visual>
+    </link>
+    <joint name="${prefix}_${ax}_axis_joint" type="fixed">
+      <parent link="${parent}"/>
+      <child link="${prefix}_${ax}_axis_link"/>
+    </joint>
+  </xacro:macro>
+
+  <xacro:macro name="axes" params="prefix parent radius:='0.005' length:='0.2' ">
+    <xacro:axis prefix="${prefix}" parent="${parent}" ax="x" radius="${radius}" length="${length}"/>
+    <xacro:axis prefix="${prefix}" parent="${parent}" ax="y" radius="${radius}" length="${length}"/>
+    <xacro:axis prefix="${prefix}" parent="${parent}" ax="z" radius="${radius}" length="${length}"/>
+  </xacro:macro>
+</robot>

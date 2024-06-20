@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="movable_base">
+    <xacro:macro name="movable_base" params="ns:='agv'">
+        <link name="${ns}_world_base"/>
+        <joint name="${ns}_world_base_joint" type="fixed">
+            <origin rpy="0 0 0" xyz="0 0 0.26"/>
+            <parent link="${ns}_world_base"/>
+            <child link="${ns}_basex"/>
+        </joint>
+        <link name="${ns}_base">
+            <visual>
+                <origin xyz="0 0 -0.26"/>
+                <geometry>
+                    <mesh filename="package://franka_description/meshes/movable_base/base_link.dae" scale="0.8 0.8 0.8"/>
+                </geometry>
+            </visual>
+            <collision>
+                <!-- <origin rpy="0 0 0" xyz="0 0 -0.1125"/>
+                <geometry>
+                    <cylinder length="0.25" radius="0.21"/>
+                </geometry> -->
+                <origin xyz="0 0 -0.26"/>
+                <geometry>
+                    <mesh filename="package://franka_description/meshes/movable_base/base_link.dae" scale="0.8 0.8 0.8"/>
+                </geometry>
+            </collision>
+        </link>
+        <link name="${ns}_basex"/>
+        <link name="${ns}_basey"/>
+        <link name="${ns}_basez"/>
+        <joint name="${ns}_base_slider_x" type="prismatic">
+            <origin rpy="0 0 0" xyz="0 0 -0.01"/>
+            <parent link="${ns}_basex"/>
+            <child link="${ns}_basey"/>
+            <axis xyz="1 0 0"/>
+            <dynamics damping="10.0"/>
+            <limit effort="1000" lower="-20" upper="20" velocity="1"/>
+        </joint>
+        <joint name="${ns}_base_slider_y" type="prismatic">
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <parent link="${ns}_basey"/>
+            <child link="${ns}_basez"/>
+            <axis xyz="0 1 0"/>
+            <dynamics damping="10.0"/>
+            <limit effort="1000" lower="-20" upper="20" velocity="1"/>
+        </joint>
+        <joint name="${ns}_base_rotate_z" type="revolute">
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <parent link="${ns}_basez"/>
+            <child link="${ns}_base"/>
+            <axis xyz="0 0 1"/>
+            <dynamics damping="10.0"/>
+            <limit effort="1000" lower="-5.0" upper="5.0" velocity="0.5"/>
+        </joint>
+        <link name="${ns}_pos_link"/>
+        <joint name="${ns}_pos_joint" type="fixed">
+            <origin rpy="0 0 0" xyz="0 0 -0.26"/>
+            <parent link="${ns}_base"/>
+            <child link="${ns}_pos_link"/>
+        </joint>
+        <link name="${ns}_arm_base_link"/>
+        <joint name="${ns}_arm_base_joint" type="fixed">
+            <origin xyz="0 0 0.03" rpy="0 0 0"/>
+            <parent link="${ns}_base"/>
+            <child link="${ns}_arm_base_link"/>
+        </joint>
+    </xacro:macro>
+</robot>

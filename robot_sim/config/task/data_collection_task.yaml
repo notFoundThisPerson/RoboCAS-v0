@@ -1,0 +1,11 @@
+defaults:
+  - sentence_transformer: all-MiniLM-L6-v2
+  - _self_
+
+_target_: robot_sim.tasks.data_collection_task.DataCollectionTask
+env: ${env}
+output_data_path: ${output_data_path}
+random_init_prob: 0.25
+max_traj_length: 200
+subtask_list: null
+retry_times: 20

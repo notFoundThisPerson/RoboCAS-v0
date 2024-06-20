@@ -1,0 +1,37 @@
+defaults:
+  - multi_obj_env
+#  - articulation_configs@articulation_configs.plate: square_plate
+  - _self_
+
+obj_place_mode: pile
+rand_rotate_obj_xy: true
+rand_rotate_obj_around_z: true
+robot_config:
+  base_pose:
+    p: [ 0.8, 0.4, 0 ]
+    q: [ 0, 0, 90 ]
+articulation_configs:
+  shelf:
+    available_layers: []
+  slide_door_container:
+    available_layers: []
+  table:
+    config:
+      surfaces:
+        table_surface: [ [ -0.05, -0.25, 0.61 ], [ 0.25, 0.15, 0.61 ] ]
+#    available_layers: []
+#  plate:
+#    config:
+#      initial_pose:
+#        p: [ 0.9, 0.8, 0.604 ]
+#        q: [ 0.707, 0, 0, 0.707 ]
+  basket:
+    config:
+      use_fixed_base: false
+      initial_pose:
+        p: [ 0.35, 0.9, 0.61 ]
+        q: [ 0.707, 0, 0, 0.707]
+
+actor_configs:
+  obj_list: [1, 2, 3, 4, 5, 7, 8, 9, 10, 12, 13, 14, 15, 16, 17, 20, 21, 24, 25, 31, 32, 34, 35, 36, 37, 38, 39, 40, 41, 42, 44, 47, 51, 52, 53, 54, 57, 58, 59, 61, 62, 63, 64, 65, 66, 71]
+  allow_repeat: false

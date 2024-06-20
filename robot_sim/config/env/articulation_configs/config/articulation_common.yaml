@@ -1,0 +1,11 @@
+defaults:
+  - common
+  - _self_
+_target_: robot_sim.envs.objects.articulation_object.ArticulationObjectConfig
+use_fixed_base: true
+surfaces: null
+operation_tasks: null
+physical_material:
+  static_friction: 0.6
+  dynamic_friction: 0.5
+  restitution: 0

@@ -1,0 +1,14 @@
+defaults:
+  - common
+  - config: articulation_common
+  - config@config.model_origin_offset: sapien_pose
+  - _self_
+
+config:
+  urdf_path: '{MT_ASSET_DIR}/object_meshes/table/mobility.urdf'
+  name: table
+  model_origin_offset:
+    p: [0.03, 0, 0.55326107]
+  surfaces:
+    _target_: collections.OrderedDict
+    table_surface: [[-0.25, -0.35, 0.61], [0.3, 0.35, 0.61]]

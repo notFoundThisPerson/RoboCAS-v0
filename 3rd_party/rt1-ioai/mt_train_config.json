@@ -1,0 +1,44 @@
+{
+    "mode": "train",
+    "device": "cuda",
+    "data_path": "/mnt/dolphinfs/hdd_pool/docker/user/hadoop-mlm/zhengliming/dataset/table_pile_search/collected_data",
+    "cam_view" : ["base_rgb", "gripper_rgb"],
+    "log_dir": "/mnt/dolphinfs/hdd_pool/docker/user/hadoop-mlm/zhengliming/models/rt1/pytorch_rt1_mt_sim_data_logs/table_pile_search",
+    "dataset_kwargs": {
+        "use_global_goal": true,
+        "pre_processed": false,
+        "pre_load_imgs_train": false
+    },
+    "time_sequence_length": 6,
+    "lr": 0.0001,
+    "batch_size": 24,
+    "num_workers": 10,
+    "epochs": 20,
+    "resume": false,
+    "resume_from_checkpoint": "",
+    "world_size": 1,
+    "dist_url": "env://",
+    "val_interval" : 1,
+    "num_eval_threads": 1,
+    "num_train_episode" : -1,
+    "num_val_episode" : 50,
+    "using_proprioception" : false,
+    "network_configs": {
+        "vocab_size" : 256,
+        "token_embedding_size_per_image" : 512,
+        "language_embedding_size" : 384,
+        "num_layers" : 8,
+        "layer_size" : 128,
+        "num_heads" : 8,
+        "feed_forward_size" : 512,
+        "dropout_rate" : 0.1,
+        "crop_size" : 236,
+        "use_token_learner" : true
+    },
+    "scheduler_configs" : {
+        "T_0" : 20,
+        "T_mult" : 2,
+        "eta_min" : 1e-5,
+        "verbose" : true
+    }
+}

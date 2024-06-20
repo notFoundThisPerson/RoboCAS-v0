@@ -1,0 +1,3 @@
+_target_: sapien.core.Pose
+p: [0, 0, 0]
+q: [1, 0, 0, 0]

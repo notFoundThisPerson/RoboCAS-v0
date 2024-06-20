@@ -1,0 +1,11 @@
+defaults:
+  - grasp_and_convey_table
+  - _self_
+
+env:
+  obj_place_mode: random
+  articulation_configs:
+    basket:
+      config:
+        initial_pose:
+          p: [ 0.45, 0.9, 0.61 ]

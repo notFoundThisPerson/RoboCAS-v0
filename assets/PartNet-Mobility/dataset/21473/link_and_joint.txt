@@ -1,0 +1,14 @@
+links: 
+base
+link_0
+link_1
+link_2
+link_3
+link_4
+
+joints: 
+joint_name: joint_0 joint_type: continuous parent_link: link_4 child_link: link_0
+joint_name: joint_1 joint_type: continuous parent_link: link_4 child_link: link_1
+joint_name: joint_2 joint_type: continuous parent_link: link_4 child_link: link_2
+joint_name: joint_3 joint_type: continuous parent_link: link_4 child_link: link_3
+joint_name: joint_4 joint_type: fixed parent_link: base child_link: link_4

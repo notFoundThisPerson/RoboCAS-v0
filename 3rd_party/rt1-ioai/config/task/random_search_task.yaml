@@ -1,0 +1,36 @@
+defaults:
+  - env: desktop_pile_env
+  - _self_
+
+_target_: robot_sim.tasks.control_tasks.table_env_control_task.TableEnvControlTask
+output_data_path: ${ckpt_dir}
+env:
+  robot_config:
+    base_pose:
+      p: [ 0.7, 0.25, 0 ]
+      q: [ 0, 0, 90 ]
+    init_qpos: [ 0, 0, 0, -0.02755132,  0.1581066,   0,  -1.8898695,  -0.06877226,  2.7705395,  0.75142545, 0.04, 0.04 ]
+  articulation_configs:
+    shelf:
+      available_layers: [ ]
+    slide_door_container:
+      available_layers: [ ]
+#    table:
+#      config:
+#        surfaces:
+##          table_surface: [ [ 0.05, -0.15, 0.61 ], [ 0.3, 0.15, 0.61 ] ]
+#          table_surface: [ [ 0, -0.2, 0.61 ], [ 0.25, 0.35, 0.61 ] ]
+    basket:
+      config:
+        use_fixed_base: false
+        initial_pose:
+          p: [ 0.35, 0.9, 0.61 ]
+          q: [ 0.707, 0, 0, 0.707 ]
+  actor_configs:
+    #    obj_list: [ 1, 2, 3, 4, 5, 7, 8, 9, 10, 12, 13, 14, 15, 16, 17, 20, 21, 24, 25, 31, 32, 34, 35, 36, 37, 38, 39, 40, 41, 42, 44, 47, 51, 52, 53, 54, 57, 58, 59, 61, 62, 63, 64, 65, 66, 71 ]
+    obj_list: [ 12, 13, 14, 15, 16, 31, 32, 34, 35, 36, 37, 38, 39, 40, 41, 42, 44 ]
+    #    obj_list: [63, 64, 65, 66]
+    allow_repeat: false
+  num_objects: 10
+  obj_place_mode: pile
+use_abs_pos: false

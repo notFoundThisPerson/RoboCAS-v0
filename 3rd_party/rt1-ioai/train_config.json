@@ -1,0 +1,40 @@
+{
+    "mode": "train",
+    "device": "cuda",
+    "data_path": "/home/caohaiheng/Projects/datasets/IO_pybullet_open_dataset/Panda_pick",
+    "cam_view" : ["front", "wrist"],
+    "log_dir": "/home/caohaiheng/Projects/reference/pytorch_rt1_with_trainer_and_tester/logs",
+    "time_sequence_length": 6,
+    "lr": 0.0001,
+    "batch_size": 1,
+    "epochs": 50,
+    "resume": false,
+    "resume_from_checkpoint": "/mnt/logs_1/1699706509/40-checkpoint.pth",
+    "predicting_next_ts": true,
+    "world_size": 4,
+    "dist_url": "env://",
+    "val_interval" : 5,
+    "num_eval_threads": 25,
+    "num_train_episode" : 200,
+    "num_val_episode" : 10,
+    "using_proprioception" : true,
+    "network_configs": {
+        "vocab_size" : 256,
+        "token_embedding_size_per_image" : 512,
+        "language_embedding_size" : 512,
+        "num_layers" : 8,
+        "layer_size" : 128,
+        "num_heads" : 8,
+        "feed_forward_size" : 512,
+        "dropout_rate" : 0.1,
+        "crop_size" : 236,
+        "use_token_learner" : true
+    },
+    "scheduler_configs" : {
+        "T_0" : 50,
+        "T_mult" : 2,
+        "eta_min" : 1e-5,
+        "verbose" : true
+    }
+    
+}

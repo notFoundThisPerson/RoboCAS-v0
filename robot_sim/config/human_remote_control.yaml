@@ -1,0 +1,26 @@
+defaults:
+  - task: control_task
+  - env: multi_obj_env
+  - _self_
+
+output_data_path: ${hydra:run.dir}/collected_data
+#num_episodes: 1000
+env:
+  robot_config:
+    base_pose:
+      p: [ 0.7, 0.15, 0 ]
+      q: [ 0, 0, 90 ]
+  articulation_configs:
+    shelf:
+      available_layers: []
+    slide_door_container:
+      available_layers: []
+    basket:
+      config:
+        use_fixed_base: false
+        initial_pose:
+          p: [ 0.35, 0.9, 0.65 ]
+          q: [ 0.707, 0, 0, 0.707]
+  num_objects: 10
+  control_freq: 10
+  render_mode: human

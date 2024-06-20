@@ -1,0 +1,13 @@
+defaults:
+  - common
+  - config: articulation_common
+  - config@config.model_origin_offset: sapien_pose
+  - _self_
+
+config:
+  visual_path: '{MT_ASSET_DIR}/object_meshes/square_plate/square_plate.obj'
+  collision_path: '{MT_ASSET_DIR}/object_meshes/square_plate/square_plate_vhacd.obj'
+  name: plate
+  surfaces:
+    _target_: collections.OrderedDict
+    surface: [[-0.15, -0.15, 0.001], [0.15, 0.15, 0.001]]

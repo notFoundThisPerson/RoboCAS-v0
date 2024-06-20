@@ -1,0 +1,8 @@
+*__pycache__
+.ipynb_checkpoints/
+ckpt/
+.idea/
+.vscode/
+*.png
+logs/
+*.ini

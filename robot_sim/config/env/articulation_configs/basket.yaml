@@ -1,0 +1,14 @@
+defaults:
+  - common
+  - config: articulation_common
+  - config@config.model_origin_offset: sapien_pose
+  - _self_
+
+config:
+  visual_path: '{MT_ASSET_DIR}/object_meshes/visual/basket.obj'
+  collision_path: '{MT_ASSET_DIR}/object_meshes/collision/basket_vhacd.obj'
+  name: basket
+  model_origin_offset:
+    p: [0, 0, 0.096]
+    q: [0.70710678, 0.70710678, 0, 0]
+  scale: 0.3

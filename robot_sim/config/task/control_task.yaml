@@ -1,0 +1,3 @@
+_target_: robot_sim.tasks.control_tasks.base_control_task.BaseControlTask
+env: ${env}
+output_data_path: ${output_data_path}

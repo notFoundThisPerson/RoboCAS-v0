@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="mobile_franka_panda">
+  <xacro:include filename="$(find franka_description)/robots/panda_arm.xacro"/>
+  <xacro:include filename="$(find franka_description)/robots/hand.xacro"/>
+  <xacro:include filename="$(find franka_description)/robots/movable_base.xacro"/>
+  <xacro:include filename="$(find franka_description)/robots/camera.xacro"/>
+  <xacro:movable_base />
+  <xacro:panda_arm connected_to="agv_arm_base_link"/>
+  <xacro:hand ns="panda" rpy="0 0 ${-pi/4}" connected_to="panda_link8"/>
+  <xacro:camera connected_to="panda_link0" ns="base" xyz="0 -0.1 0.9" rpy="0 0.2592036762145949 0"/>
+
+  <!-- <xacro:include filename="$(find franka_description)/robots/axes.xacro"/> -->
+  <!-- <xacro:axes prefix="tcp" parent="panda_hand_tcp"/> -->
+</robot>

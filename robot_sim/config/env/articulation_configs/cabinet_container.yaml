@@ -1,0 +1,32 @@
+defaults:
+  - common
+  - config: articulation_common
+  - config@config.model_origin_offset: sapien_pose
+  - config@config.operation_tasks.rotate1: task_config_common
+  - config@config.operation_tasks.slide_drawer: task_config_common
+  - _self_
+
+config:
+  urdf_path: '{MT_ASSET_DIR}/PartNet-Mobility/dataset/45949/mobility.urdf'
+  name: cabinet_container
+  model_origin_offset:
+    p: [0, 0, 0.711098]
+    q: [0, 0, 0, 1]
+
+  operation_tasks:
+    rotate1:
+      type: rotate_operation
+      name: 'rotate door'
+      link_name: link_1
+      joint_name: joint_1
+      handle_pose:
+        p: [0.590528, -0.552451, 0.1]
+        q: [0, 0, 1, 0]
+    slide_drawer:
+      type: slide_operation
+      name: 'slide drawer'
+      link_name: link_2
+      joint_name: joint_2
+      handle_pose:
+        p: [-0.329663, 0.450208, 0.39]
+        q: [0, 0.707, 0.707, 0]

@@ -1,0 +1,4 @@
+_target_: robot_sim.envs.objects.articulation_object.ArticulationObject
+config: ???
+available_layers: null
+scene: null
